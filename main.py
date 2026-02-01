@@ -1,14 +1,22 @@
 import argparse
 from functions import readme
 
+
+#########################################
+### Override error() to suppress help ###
+#########################################
+class ArgumentParser(argparse.ArgumentParser):
+    def error(self, message):
+        print(f"Error: {message}")
+
 parser = argparse.ArgumentParser(
     description="CyberPatriot Automation Script for Linux.",
     epilog="Developed by Christopher Lewis, 2026."
 )
 
-###################################
-###         README Args         ###
-###################################
+#########################################
+###            README Args            ###
+#########################################
 parser.add_argument(
     "--readme", "-r",
     metavar="FILE",
@@ -24,9 +32,9 @@ parser.add_argument(
     action="store_true",
     help="Only parse and display README data"
 )
-###################################
-###         Other  Args         ###
-###################################
+#########################################
+###            Other  Args            ###
+#########################################
 parser.add_argument(
     "--dry-run", "-d",
     action="store_true",
