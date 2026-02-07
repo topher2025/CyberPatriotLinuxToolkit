@@ -1,3 +1,7 @@
 /output.txt
 /data/parsed.json
+/tests/practice_vms
+
+
 *.xml
+*.iml
