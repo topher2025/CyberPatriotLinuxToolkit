@@ -13,7 +13,7 @@
 A Linux automation and system-hardening toolkit designed to assist **CyberPatriot**
 competitors during **training environments and competitions**.
 
-This project automates common security checks while keeping all actions 
+This project automates common security checks while keeping all actions transparent and easily updateable.
 
 
 
