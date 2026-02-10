@@ -4,7 +4,6 @@ import json
 import html
 
 
-
 def find_readme():
     filenames = ["README.md", "README.txt", "README", "README.html"]
     basedirs = [".", "~/Desktop", "~/Documents", "~/Downloads"]
@@ -36,7 +35,12 @@ def find_readme():
 
 
 def confirm_path(path):
-    return path and os.path.isfile(path) and os.path.basename(str(path)).upper().startswith("README") and not ignore_readme(path)
+    return (
+        path
+        and os.path.isfile(path)
+        and os.path.basename(str(path)).upper().startswith("README")
+        and not ignore_readme(path)
+    )
 
 
 def strip_html(text: str) -> str:
@@ -63,7 +67,7 @@ def ignore_readme(path):
     try:
         with open(path, "r", encoding="utf-8") as f:
             first_line = f.readline().strip()
-            #print(first_line)
+            # print(first_line)
             # Return False if 'IGNORE' is in the first line
             return "<!-- IGNORE -->" == first_line
     except FileNotFoundError:
@@ -86,7 +90,7 @@ def parse_readme(path: str):
             "admins": [],
             "required_services": [],
             "add_groups": {},
-            "add_users": []
+            "add_users": [],
         }
 
         # -----------------------------
@@ -95,7 +99,7 @@ def parse_readme(path: str):
         auth_match = re.search(
             r"Authorized Administrators and Users(.*?)(Competition Guidelines|ANSWER KEY)",
             plain,
-            re.I | re.S
+            re.I | re.S,
         )
 
         if auth_match:
@@ -138,7 +142,7 @@ def parse_readme(path: str):
 
         for pat in user_patterns:
             for m in re.finditer(pat, plain, re.I | re.S):
-                user = m.group(1).strip('"\'')
+                user = m.group(1).strip("\"'")
 
                 if is_valid_username(user) and user not in data["add_users"]:
                     data["add_users"].append(user)
@@ -171,7 +175,7 @@ def parse_readme(path: str):
         services_match = re.search(
             r"Critical Services\s*(.*?)(?:Authorized Administrators|Competition Guidelines|$)",
             plain,
-            re.I | re.S
+            re.I | re.S,
         )
 
         if services_match:

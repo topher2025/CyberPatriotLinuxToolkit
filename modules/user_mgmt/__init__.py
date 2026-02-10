@@ -39,13 +39,11 @@ __all__ = [
     "create_user",
     "lock_user",
     "delete_user",
-
     # groups
     "group_exists",
     "create_group",
     "add_user_to_group",
     "remove_user_from_group",
-
     # audit
     "audit_users",
     "audit_groups",

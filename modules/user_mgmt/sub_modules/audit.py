@@ -2,7 +2,6 @@ from utils.scripts import run_script_stdout
 from utils.data import dump_json
 
 
-
 def audit_users(expected_users):
     audit = run_script_stdout("modules/user_mgmt/shell/list_users.sh")
     struct = {"found_users": [], "missing_users": [], "unexpected_users": []}
@@ -17,7 +16,6 @@ def audit_users(expected_users):
             struct["missing_users"].append(user)
     dump_json(struct, "data/audits/users.json")
     return struct
-
 
 
 def audit_groups(expected_groups):
@@ -35,8 +33,3 @@ def audit_groups(expected_groups):
 
     dump_json(struct, "data/audits/groups.json")
     return struct
-
-
-
-
-

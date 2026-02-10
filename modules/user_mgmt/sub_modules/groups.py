@@ -9,8 +9,6 @@ def group_exists(group_name):
         return False
 
 
-
-
 def create_group(group_name):
     try:
         run_script_stdout("shell/sudo/create_group.sh", group_name, sudo=True)
@@ -29,7 +27,9 @@ def delete_group(group_name):
 
 def add_user_to_group(username, group_name):
     try:
-        run_script_stdout("shell/sudo/add_user_to_group.sh", username, group_name, sudo=True)
+        run_script_stdout(
+            "shell/sudo/add_user_to_group.sh", username, group_name, sudo=True
+        )
         return True
     except Exception as e:
         return False
@@ -37,8 +37,9 @@ def add_user_to_group(username, group_name):
 
 def remove_user_from_group(username, group_name):
     try:
-        run_script_stdout("shell/sudo/remove_user_from_group.sh", username, group_name, sudo=True)
+        run_script_stdout(
+            "shell/sudo/remove_user_from_group.sh", username, group_name, sudo=True
+        )
         return True
     except Exception as e:
         return False
-

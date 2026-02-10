@@ -8,4 +8,3 @@ from utils import scripts
 def test_shells():
     def list_users():
         pass
-

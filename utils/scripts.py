@@ -27,21 +27,18 @@ def run_script(script_path: str, *args, cwd: str = None, sudo: bool = False) -> 
     cmd.extend(["bash", str(script_path), *args])
 
     # Run the script
-    result = subprocess.run(
-        cmd,
-        capture_output=True,
-        text=True,
-        cwd=cwd
-    )
+    result = subprocess.run(cmd, capture_output=True, text=True, cwd=cwd)
 
     return {
         "stdout": result.stdout.strip(),
         "stderr": result.stderr.strip(),
-        "returncode": result.returncode
+        "returncode": result.returncode,
     }
 
 
-def run_script_stdout(script_path: str, *args, cwd: str = None, sudo: bool = False) -> str:
+def run_script_stdout(
+    script_path: str, *args, cwd: str = None, sudo: bool = False
+) -> str:
     """
     Runs a shell script and returns its standard output.
 

@@ -1,6 +1,7 @@
 import json
 import os
 
+
 def dump_json(data: dict, name: str, path: str = "data/") -> bool:
     """
     Dumps a dictionary to a JSON file.
