@@ -1,6 +1,8 @@
 /output.txt
 /data/parsed.json
 /tests/practice_vm
+/.idea
+/.venv
 
 
 *.xml
