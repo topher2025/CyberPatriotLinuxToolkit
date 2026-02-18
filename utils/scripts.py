@@ -15,10 +15,16 @@ def run_script(script_path: str, *args, cwd: str = None, sudo: bool = False) -> 
     Returns:
         dict: Contains 'stdout', 'stderr', and 'returncode'.
     """
-    script_path = Path(script_path)
+    script_path_obj = Path(script_path)
 
-    if not script_path.exists():
-        raise FileNotFoundError(f"Script not found: {script_path}")
+    # Check if script exists - if cwd is provided, check relative to cwd
+    if cwd:
+        full_path = Path(cwd) / script_path
+    else:
+        full_path = script_path_obj
+
+    if not full_path.exists():
+        raise FileNotFoundError(f"Script not found: {full_path}")
 
     # Build command with optional sudo
     cmd = []

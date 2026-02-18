@@ -3,6 +3,7 @@
 /tests/practice_vm
 /.idea
 /.venv
+/.wsl_venv
 
 
 *.xml
