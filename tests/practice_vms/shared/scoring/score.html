@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Patriot Scoring - [[SYSTEM]]</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .system-info {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .score-display {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .score-value {
+            font-size: 72px;
+            font-weight: bold;
+            color: #667eea;
+            margin: 20px 0;
+        }
+
+        .score-label {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .checks-section {
+            margin-top: 30px;
+        }
+
+        .checks-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            border-left: 4px solid #ddd;
+        }
+
+        .check-item.passed {
+            background-color: #d4edda;
+            border-left-color: #28a745;
+        }
+
+        .check-item.failed {
+            background-color: #f8d7da;
+            border-left-color: #dc3545;
+        }
+
+        .check-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .check-item.passed .check-icon {
+            color: #28a745;
+        }
+
+        .check-item.failed .check-icon {
+            color: #dc3545;
+        }
+
+        .check-text {
+            flex: 1;
+            font-size: 16px;
+        }
+
+        .check-points {
+            font-weight: bold;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+
+        .check-item.passed .check-points {
+            color: #28a745;
+        }
+
+        .check-item.failed .check-points {
+            color: #dc3545;
+        }
+
+        .last-updated {
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .refresh-indicator {
+            text-align: center;
+            color: #667eea;
+            font-size: 14px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: [[PROGRESS]]%;
+            transition: width 0.5s ease;
+        }
+
+        .no-checks {
+            text-align: center;
+            color: #999;
+            padding: 40px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cyber Patriot Scoring System</h1>
+        <div class="system-info">[[SYSTEM]] | Last Updated: [[TIMESTAMP]]</div>
+
+        <div class="score-display">
+            <div class="score-label">Current Score</div>
+            <div class="score-value">[[SCORE]]</div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="checks-section">
+            <h2>Security Checks</h2>
+            [[CHECKS]]
+        </div>
+
+        <div class="last-updated">
+            <div class="refresh-indicator">⟳ Page auto-refreshes every 5 seconds</div>
+            <div>Last updated: [[TIMESTAMP]]</div>
+        </div>
+    </div>
+
+    <script>
+        // Auto-refresh every 5 seconds
+        setInterval(function() {
+            location.reload();
+        }, 5000);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,43 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  # Define the Linux Mint VM
+  config.vm.define "mint" do |mint|
+    mint.vm.box = "generic/ubuntu2204"
+    mint.vm.hostname = "mint-practice"
+    mint.vm.provider "vmware_desktop" do |vmware|
+      vmware.gui = true
+      vmware.vmx["memsize"] = "4096"
+      vmware.vmx["numvcpus"] = "2"
+      vmware.vmx["displayname"] = "CyberPatriot Mint Practice"
+    end
+
+    # Synced folders - mint only has access to mint/ and scoring/ folders
+    mint.vm.synced_folder "./shared/mint", "/home/vagrant/Desktop/mint", create: true, owner: "vagrant", group: "vagrant"
+    mint.vm.synced_folder "./shared/scoring", "/home/vagrant/Desktop/scoring", create: true, owner: "vagrant", group: "vagrant"
+
+    # Provisioning script
+    mint.vm.provision "shell", path: "./provision/mint_issues.sh"
+  end
+
+  # Define the Ubuntu VM
+  config.vm.define "ubuntu" do |ubuntu|
+    ubuntu.vm.box = "generic/ubuntu2204"
+    ubuntu.vm.hostname = "ubuntu-practice"
+    ubuntu.vm.provider "vmware_desktop" do |vmware|
+      vmware.gui = true
+      vmware.vmx["memsize"] = "4096"
+      vmware.vmx["numvcpus"] = "2"
+      vmware.vmx["displayname"] = "CyberPatriot Ubuntu Practice"
+    end
+
+    # Synced folders - ubuntu only has access to ubuntu/ and scoring/ folders
+    ubuntu.vm.synced_folder "./shared/ubuntu", "/home/vagrant/Desktop/ubuntu", create: true, owner: "vagrant", group: "vagrant"
+    ubuntu.vm.synced_folder "./shared/scoring", "/home/vagrant/Desktop/scoring", create: true, owner: "vagrant", group: "vagrant"
+
+    # Provisioning script
+    ubuntu.vm.provision "shell", path: "./provision/ubuntu_issues.sh"
+  end
+end
+
