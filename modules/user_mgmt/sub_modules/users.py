@@ -15,7 +15,12 @@ def user_exists(username):
 
 def create_user(username):
     try:
-        run_script_stdout("modules/user_mgmt/shell/sudo/create_user.sh", username, cwd=PROJECT_ROOT, sudo=True)
+        run_script_stdout(
+            "modules/user_mgmt/shell/sudo/create_user.sh",
+            username,
+            cwd=PROJECT_ROOT,
+            sudo=True,
+        )
         return True
     except Exception as e:
         print(f"Error creating user: {e}")
@@ -24,7 +29,12 @@ def create_user(username):
 
 def delete_user(username):
     try:
-        run_script_stdout("modules/user_mgmt/shell/sudo/delete_user.sh", username, cwd=PROJECT_ROOT, sudo=True)
+        run_script_stdout(
+            "modules/user_mgmt/shell/sudo/delete_user.sh",
+            username,
+            cwd=PROJECT_ROOT,
+            sudo=True,
+        )
         return True
     except Exception as e:
         print(f"Error deleting user: {e}")
@@ -33,7 +43,12 @@ def delete_user(username):
 
 def lock_user(username):
     try:
-        run_script_stdout("modules/user_mgmt/shell/sudo/lock_user.sh", username, cwd=PROJECT_ROOT, sudo=True)
+        run_script_stdout(
+            "modules/user_mgmt/shell/sudo/lock_user.sh",
+            username,
+            cwd=PROJECT_ROOT,
+            sudo=True,
+        )
         return True
     except Exception as e:
         print(f"Error locking user: {e}")

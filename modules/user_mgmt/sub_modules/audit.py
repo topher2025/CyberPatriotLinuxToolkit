@@ -23,7 +23,9 @@ def audit_users(expected_users):
 
 
 def audit_groups(expected_groups):
-    audit = run_script_stdout("modules/user_mgmt/shell/list_groups.sh", cwd=PROJECT_ROOT)
+    audit = run_script_stdout(
+        "modules/user_mgmt/shell/list_groups.sh", cwd=PROJECT_ROOT
+    )
     struct = {"found_groups": [], "missing_groups": [], "unexpected_groups": []}
     for line in audit.splitlines():
         group_name = line.strip()

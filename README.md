@@ -56,8 +56,8 @@ cd CyberPatriotLinuxToolkit
 ```
 Start virtual environment:
 ```bash
-python3 -m venv venv
-source /venv/bin/activate
+python3 -m venv ~/venv
+source ~/venv/bin/activate
 ```
 
 Run the setup file:
@@ -73,22 +73,24 @@ python3 main.py -h
 
 ## Options
 
-| Argument              | Short | Description                                  |
-|:----------------------|:-----:|:---------------------------------------------|
-| --readme              |  -r   | Path to competition README file              |
-| --auto-readme         |  -R   | Auto-find README in common locations         |
-| --parse-readme        |  -P   | Only parse and display README data           |
-| --dry-run             |  -d   | Preview changes without applying             |
-| --no-interactive      |  -y   | Disable interactive prompts                  |
-| --password-policy     |  -p   | Password policy enforcement                  |
-| --account-permissions |  -a   | Account permissions check (requires README)  |
-| --user-management     |  -u   | User management (requires README)            |
-| --service-management  |  -s   | Service management                           |
-| --audit-policy        |  -t   | Audit policy configuration                   |
-| --firewall            |  -f   | Firewall configuration                       |
-| --security-hardening  |  -k   | Security hardening                           |
-| --media-scan          |  -m   | Prohibited media scanner                     |
-| --all                 |       | Run all tasks                                |
+| Argument              | Short | Description                                                 |
+|:----------------------|:-----:|:------------------------------------------------------------|
+| --readme              |  -r   | Path to competition README file                             |
+| --auto-readme         |  -R   | Auto-find README in common locations                        |
+| --parse-readme        |  -P   | Only parse and display README data                          |
+| --dry-run             |  -d   | Preview changes without applying                            |
+| --no-interactive      |  -y   | Disable interactive prompts and redirects stdout to ./logs/ |
+| --password-policy     |  -p   | Password policy enforcement                                 |
+| --account-permissions |  -a   | Account permissions check (requires README)                 |
+| --user-management     |  -u   | User management (requires README)                           |
+| --service-management  |  -s   | Service management                                          |
+| --audit-policy        |  -t   | Audit policy configuration                                  |
+| --firewall            |  -f   | Firewall configuration                                      |
+| --security-hardening  |  -k   | Security hardening                                          |
+| --media-scan          |  -m   | Prohibited media scanner                                    |
+| --all                 |       | Run all tasks                                               |
+| --test                |       | Run tests for supplied arguments                            |
+| --help                |  -h   | Show this help message and exit                             |
 
 
 ## Usage Examples
@@ -100,7 +102,7 @@ CyberPatriotLinuxToolkit/
 ├── LICENSE                 # Apache 2.0 License
 ├── NOTICE                  # Attribution & trademark notice
 ├── CREDITS.md              # Credits and insparations
-├── CONTRIBUTING.md        # Contribution guidelines
+├── CONTRIBUTING.md         # Contribution guidelines
 ├── setup.py                # Initial setup
 ├── main.py                 # Entry point
 ├── data/                   # Data and config fils

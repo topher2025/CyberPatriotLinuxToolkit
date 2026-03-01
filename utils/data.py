@@ -41,3 +41,24 @@ def load_json(name: str, path: str = "data/") -> dict:
         return data
     except Exception as e:
         return {}
+
+
+def load_json_file(file_path: str) -> dict:
+    """
+    Loads a dictionary from a JSON file using the full file path.
+
+    Args:
+        file_path (str): The full path to the JSON file (including extension).
+
+    Returns:
+        dict: The loaded dictionary, or empty dict if file not found or error.
+    """
+    try:
+        with open(file_path, "r") as f:
+            data = json.load(f)
+        return data
+    except FileNotFoundError:
+        return {}
+    except Exception as e:
+        return {}
+

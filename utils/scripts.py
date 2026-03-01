@@ -30,10 +30,10 @@ def run_script(script_path: str, *args, cwd: str = None, sudo: bool = False) -> 
     cmd = []
     if sudo:
         cmd.extend(["sudo", "-n"])  # -n flag for non-interactive (passwordless)
-    cmd.extend(["bash", str(script_path), *args])
+    cmd.extend(["bash", str(full_path), *args])
 
     # Run the script
-    result = subprocess.run(cmd, capture_output=True, text=True, cwd=cwd)
+    result = subprocess.run(cmd, capture_output=True, text=True)
 
     return {
         "stdout": result.stdout.strip(),
@@ -58,3 +58,29 @@ def run_script_stdout(
     if result["returncode"] != 0:
         raise RuntimeError(f"Script failed with error: {result['stderr']}")
     return result["stdout"]
+
+
+def run_line(command: str, cwd: str = None, sudo: bool = False) -> dict:
+    """
+    Runs a shell command line and returns its output.
+
+    Args:
+        command (str): The shell command to run.
+        cwd (str, optional): Directory to run the command from. Defaults to None.
+        sudo (bool, optional): Whether to run the command with sudo. Defaults to False.
+
+    Returns:
+        dict: Contains 'stdout', 'stderr', and 'returncode'.
+    """
+    cmd = []
+    if sudo:
+        cmd.extend(["sudo", "-n"])  # -n flag for non-interactive (passwordless)
+    cmd.extend(["bash", "-c", command])
+
+    result = subprocess.run(cmd, capture_output=True, text=True, cwd=cwd)
+
+    return {
+        "stdout": result.stdout.strip(),
+        "stderr": result.stderr.strip(),
+        "returncode": result.returncode,
+    }

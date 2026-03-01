@@ -205,3 +205,25 @@ systemctl restart ssh 2>/dev/null || true
 systemctl restart apache2 2>/dev/null || true
 systemctl restart smbd 2>/dev/null || true
 systemctl restart vsftpd 2>/dev/null || true
+
+# Set file permissions - make dev directory read-only except for logs/ and data/
+echo "Setting file permissions on dev directory..."
+DEV_DIR="/home/vagrant/Desktop/dev"
+
+# Remove write permissions from all directories recursively
+find "$DEV_DIR" -type d -exec chmod u-w,g-w,o-w {} \;
+find "$DEV_DIR" -type f -exec chmod u-w,g-w,o-w {} \;
+
+# Grant write permissions to logs/ and data/ directories and their contents
+if [ -d "$DEV_DIR/logs" ]; then
+    find "$DEV_DIR/logs" -type d -exec chmod u+w,g+w,o+w {} \;
+    find "$DEV_DIR/logs" -type f -exec chmod u+w,g+w,o+w {} \;
+fi
+
+if [ -d "$DEV_DIR/data" ]; then
+    find "$DEV_DIR/data" -type d -exec chmod u+w,g+w,o+w {} \;
+    find "$DEV_DIR/data" -type f -exec chmod u+w,g+w,o+w {} \;
+fi
+
+echo "File permissions configured successfully."
+

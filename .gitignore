@@ -1,10 +1,10 @@
 /output.txt
 /data/parsed.json
-/tests/practice_vm
+/tests/practice_vms/.vagrant
 /.idea
 /.venv
 /.wsl_venv
-
+/logs
 
 *.xml
 *.iml

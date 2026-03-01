@@ -29,12 +29,16 @@ echo "----------------------------------------"
 echo "$SUDOERS_CONTENT"
 echo "----------------------------------------"
 echo ""
-read -p "Continue? (y/n) " -n 1 -r
-echo ""
 
-if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-    echo "Aborted."
-    exit 1
+# Check for -y flag for non-interactive mode
+if [[ "$1" != "-y" ]]; then
+    read -p "Continue? (y/n) " -n 1 -r
+    echo ""
+
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        echo "Aborted."
+        exit 1
+    fi
 fi
 
 # Create the sudoers file

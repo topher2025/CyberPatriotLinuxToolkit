@@ -19,6 +19,8 @@ def find_readme():
                             return os.path.abspath(path)
 
             for item in os.listdir(os.path.normpath(os.path.expanduser(base))):
+                if item.startswith('.'):
+                    continue
                 path = os.path.normpath(os.path.expanduser(os.path.join(base, item)))
                 if os.path.isdir(path):
                     for filename in filenames:

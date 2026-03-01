@@ -15,7 +15,12 @@ def group_exists(group_name):
 
 def create_group(group_name):
     try:
-        run_script_stdout("modules/user_mgmt/shell/sudo/create_group.sh", group_name, cwd=PROJECT_ROOT, sudo=True)
+        run_script_stdout(
+            "modules/user_mgmt/shell/sudo/create_group.sh",
+            group_name,
+            cwd=PROJECT_ROOT,
+            sudo=True,
+        )
         return True
     except Exception as e:
         print(f"Error creating group: {e}")
@@ -24,7 +29,12 @@ def create_group(group_name):
 
 def delete_group(group_name):
     try:
-        run_script_stdout("modules/user_mgmt/shell/sudo/delete_group.sh", group_name, cwd=PROJECT_ROOT, sudo=True)
+        run_script_stdout(
+            "modules/user_mgmt/shell/sudo/delete_group.sh",
+            group_name,
+            cwd=PROJECT_ROOT,
+            sudo=True,
+        )
         return True
     except Exception as e:
         print(f"Error deleting group: {e}")
@@ -34,7 +44,11 @@ def delete_group(group_name):
 def add_user_to_group(username, group_name):
     try:
         run_script_stdout(
-            "modules/user_mgmt/shell/sudo/add_user_to_group.sh", username, group_name, cwd=PROJECT_ROOT, sudo=True
+            "modules/user_mgmt/shell/sudo/add_user_to_group.sh",
+            username,
+            group_name,
+            cwd=PROJECT_ROOT,
+            sudo=True,
         )
         return True
     except Exception as e:
@@ -45,7 +59,11 @@ def add_user_to_group(username, group_name):
 def remove_user_from_group(username, group_name):
     try:
         run_script_stdout(
-            "modules/user_mgmt/shell/sudo/remove_user_from_group.sh", username, group_name, cwd=PROJECT_ROOT, sudo=True
+            "modules/user_mgmt/shell/sudo/remove_user_from_group.sh",
+            username,
+            group_name,
+            cwd=PROJECT_ROOT,
+            sudo=True,
         )
         return True
     except Exception as e:
