@@ -140,7 +140,8 @@ CyberPatriotLinuxToolkit/
 │   ├── parsed.json         # Output path for README parsing
 │   ├── prohibited.json     # Prohibited items
 ├── modules/                # Modules for tasks
-│   ├── user_mgmt/          # User & group auditing
+│   ├── user_mgmt/          # User & group auditing ✓
+│   ├── pswd_policy/        # Password policy enforcement ✓
 │   ├── services/           # Service inspection
 │   ├── firewall/           # Firewall checks
 │   ├── hardening/          # System hardening helpers

@@ -1,7 +1,8 @@
 import argparse
 from utils import readme
 from utils.outputs import log_output, set_interactive
-from modules.user_mgmt import main
+from modules.user_mgmt import main as user_mgmt_main
+from modules.pswd_policy import main as pswd_policy_main
 
 
 #########################################
@@ -125,7 +126,7 @@ if __name__ == "__main__":
 
     if args.password_policy or args.all:
         args_supplied = True
-        pass
+        pswd_policy_main.main(args.dry_run, args.test)
     if args.account_permissions or args.all:
         args_supplied = True
         if not r_status:
@@ -137,7 +138,7 @@ if __name__ == "__main__":
         if not r_status:
             parser.error("User permissions require README file")
         else:
-            main.main(parsed_readme, args.dry_run, args.test)
+            user_mgmt_main.main(parsed_readme, args.dry_run, args.test)
     if args.service_management or args.all:
         args_supplied = True
         pass
