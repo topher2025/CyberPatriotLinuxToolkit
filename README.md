@@ -95,6 +95,37 @@ python3 main.py -h
 
 ## Usage Examples
 
+**Parse README (auto-find):**
+```bash
+python3 main.py -R -P
+```
+
+**Parse README (specific path):**
+```bash
+python3 main.py --readme /path/to/README.md --parse-readme
+```
+
+**User Management (with auto-found README):**
+```bash
+python3 main.py -R -P -u
+```
+
+**Dry-run preview:**
+```bash
+python3 main.py -R -P -u -d
+```
+
+**Non-interactive (logs to `logs/`):**
+```bash
+python3 main.py -R -P -u -y
+```
+
+**Run tests:**
+```bash
+python3 main.py -R -P -u --test
+```
+
+
 ## Project Structure
 ```
 CyberPatriotLinuxToolkit/
