@@ -1,3 +1,4 @@
+#!/usr/bin/env pwsh
 # Remove read-only attribute from all files (including .git directory)
 Get-ChildItem -Path . -Recurse -File -Force | ForEach-Object { if ($_.IsReadOnly) { $_.IsReadOnly = $false } }
 
