@@ -5,6 +5,8 @@
 /.venv
 /.wsl_venv
 /logs
+/dev/*.txt
+/dev/*.log
 
 *.xml
 *.iml

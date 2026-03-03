@@ -1,0 +1,26 @@
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Force LF line endings for shell scripts to prevent '$\r': command not found' errors on Linux
+*.sh text eol=lf
+
+# Force LF for other script files
+*.bash text eol=lf
+*.py text eol=lf
+
+# Windows scripts should use CRLF
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.tar.gz binary
+*.odt binary
+

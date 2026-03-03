@@ -16,6 +16,7 @@ Vagrant.configure("2") do |config|
     # Synced folders - mint only has access to mint/ and scoring/ folders
     mint.vm.synced_folder "./shared/mint", "/home/vagrant/Desktop/mint", create: true, owner: "vagrant", group: "vagrant"
     mint.vm.synced_folder "./shared/scoring", "/home/vagrant/Desktop/scoring", create: true, owner: "vagrant", group: "vagrant"
+    mint.vm.synced_folder "../..", "/home/vagrant/Desktop/dev", create: true, owner: "vagrant", group: "vagrant"
 
     # Provisioning script
     mint.vm.provision "shell", path: "./provision/mint_issues.sh"
@@ -35,6 +36,7 @@ Vagrant.configure("2") do |config|
     # Synced folders - ubuntu only has access to ubuntu/ and scoring/ folders
     ubuntu.vm.synced_folder "./shared/ubuntu", "/home/vagrant/Desktop/ubuntu", create: true, owner: "vagrant", group: "vagrant"
     ubuntu.vm.synced_folder "./shared/scoring", "/home/vagrant/Desktop/scoring", create: true, owner: "vagrant", group: "vagrant"
+    ubuntu.vm.synced_folder "../..", "/home/vagrant/Desktop/dev", create: true, owner: "vagrant", group: "vagrant"
 
     # Provisioning script
     ubuntu.vm.provision "shell", path: "./provision/ubuntu_issues.sh"
