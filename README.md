@@ -73,24 +73,24 @@ python3 main.py -h
 
 ## Options
 
-| Argument              | Short | Description                                                 |
-|:----------------------|:-----:|:------------------------------------------------------------|
-| --readme              |  -r   | Path to competition README file                             |
-| --auto-readme         |  -R   | Auto-find README in common locations                        |
-| --parse-readme        |  -P   | Only parse and display README data                          |
-| --dry-run             |  -d   | Preview changes without applying                            |
-| --no-interactive      |  -y   | Disable interactive prompts and redirects stdout to ./logs/ |
-| --password-policy     |  -p   | Password policy enforcement                                 |
-| --account-permissions |  -a   | Account permissions check (requires README)                 |
-| --user-management     |  -u   | User management (requires README)                           |
-| --service-management  |  -s   | Service management                                          |
-| --audit-policy        |  -t   | Audit policy configuration                                  |
-| --firewall            |  -f   | Firewall configuration                                      |
-| --security-hardening  |  -k   | Security hardening                                          |
-| --media-scan          |  -m   | Prohibited media scanner                                    |
-| --all                 |       | Run all tasks                                               |
-| --test                |       | Run tests for supplied arguments                            |
-| --help                |  -h   | Show this help message and exit                             |
+| Argument              | Short | Description                                                 |   Status    |
+|:----------------------|:-----:|:------------------------------------------------------------|:-----------:|
+| --readme              |  -r   | Path to competition README file                             |    Done     |
+| --auto-readme         |  -R   | Auto-find README in common locations                        |    Done     |
+| --parse-readme        |  -P   | Only parse and display README data                          |    Done     |
+| --dry-run             |  -d   | Preview changes without applying                            |    Done     |
+| --no-interactive      |  -y   | Disable interactive prompts and redirects stdout to ./logs/ |    Done     |
+| --password-policy     |  -p   | Password policy enforcement                                 |    Done     |
+| --account-permissions |  -a   | Account permissions check (requires README)                 | Not Started |
+| --user-management     |  -u   | User management (requires README)                           |    Done     |
+| --service-management  |  -s   | Service management                                          | Not Started |
+| --audit-policy        |  -t   | Audit policy configuration                                  | Not Started |
+| --firewall            |  -f   | Firewall configuration                                      | Not Started |
+| --security-hardening  |  -k   | Security hardening                                          | Not Started |
+| --media-scan          |  -m   | Prohibited media scanner                                    | Not Started |
+| --all                 |       | Run all tasks                                               | In Progress |
+| --test                |       | Run tests for supplied arguments                            | In Progress |
+| --help                |  -h   | Show this help message and exit                             |    Done     |
 
 
 ## Usage Examples
@@ -140,7 +140,8 @@ CyberPatriotLinuxToolkit/
 │   ├── parsed.json         # Output path for README parsing
 │   ├── prohibited.json     # Prohibited items
 ├── modules/                # Modules for tasks
-│   ├── user_mgmt/          # User & group auditing
+│   ├── user_mgmt/          # User & group auditing ✓
+│   ├── pswd_policy/        # Password policy enforcement ✓
 │   ├── services/           # Service inspection
 │   ├── firewall/           # Firewall checks
 │   ├── hardening/          # System hardening helpers
