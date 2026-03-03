@@ -15,7 +15,7 @@ def get_current_pam_settings() -> Optional[Dict[str, Any]]:
         dict: Current PAM settings
     """
     try:
-        result = run_line("grep 'pam_pwquality.so' /etc/pam.d/common-password", sudo=True)
+        result = run_line("grep -m 1 '^\\s*password.*pam_pwquality\\.so' /etc/pam.d/common-password", sudo=True)
 
         settings: Dict[str, Any] = {
             "minlen": None,

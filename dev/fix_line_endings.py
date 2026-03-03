@@ -30,7 +30,7 @@ def convert_to_lf(file_path):
 
 def main():
     """Find and convert all shell scripts in the project."""
-    base_dir = os.path.dirname(os.path.abspath(__file__))
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
     # Find all .sh files
     shell_files = glob.glob(os.path.join(base_dir, '**', '*.sh'), recursive=True)

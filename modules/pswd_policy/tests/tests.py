@@ -12,6 +12,7 @@ from modules.pswd_policy.sub_modules import audit, pam_config, login_defs
 class TestPasswordPolicy:
     """Test password policy module functionality."""
 
+    @pytest.mark.sudo
     def test_get_current_pam_settings(self):
         """Test reading current PAM settings."""
         settings = pam_config.get_current_pam_settings()
@@ -23,6 +24,7 @@ class TestPasswordPolicy:
         assert "lcredit" in settings
         assert "ocredit" in settings
 
+    @pytest.mark.sudo
     def test_audit_pam_pwquality(self):
         """Test PAM audit functionality."""
         issues = pam_config.audit_pam_pwquality()
