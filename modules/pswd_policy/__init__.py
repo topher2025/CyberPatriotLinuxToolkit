@@ -4,12 +4,13 @@ Password policy package.
 Responsible for:
 - Password quality requirements (PAM pwquality)
 - Password aging policies (login.defs)
-- Account lockout policies
-- Password history enforcement
+- Password policy auditing
 
 Does NOT handle:
 - User password changes
+- Account lockout policies
 - Account lockout detection
+- Password history enforcement
 - Specific user password auditing
 """
 
